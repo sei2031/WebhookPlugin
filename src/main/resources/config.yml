@@ -1,0 +1,17 @@
+webhooks:
+  hook1:
+    url: "ここにhook1用のWebhook URLを入れる"
+
+  hook2:
+    url: "ここにhook2用のWebhook URLを入れる"
+
+  hook3:
+    url: "ここにhook3用のWebhook URLを入れる"
+
+messages:
+  usage: "使い方: /hoge [登録名] [内容]"
+  no-permission: "このコマンドを使う権限がありません。"
+  unknown-webhook: "その登録名のWebhookは存在しません。"
+  success: "Webhookを送信しました。"
+  reload-success: "config.ymlを再読み込みしました。"
+  reload-usage: "使い方: /webhookplugin reload"

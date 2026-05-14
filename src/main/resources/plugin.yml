@@ -1,0 +1,24 @@
+name: WebhookPlugin
+version: 1.0.0
+main: me.example.webhookplugin.WebhookPlugin
+api-version: '1.20'
+
+commands:
+  hoge:
+    description: 登録名に紐づいたDiscord Webhookへメッセージを送信します
+    usage: /hoge [登録名] [内容]
+    permission: webhookplugin.send
+
+  webhookplugin:
+    description: WebhookPluginの管理コマンド
+    usage: /webhookplugin reload
+    permission: webhookplugin.reload
+
+permissions:
+  webhookplugin.send:
+    description: /hoge コマンドの使用を許可します
+    default: op
+
+  webhookplugin.reload:
+    description: config.ymlの再読み込みを許可します
+    default: op
