@@ -2,7 +2,7 @@
 
 ## 概要
 
-WebhookPluginは、Minecraftサーバー内からDiscord Webhookへメッセージを送信できるPaper/Spigot系プラグインです。
+WebhookPluginは、Minecraftサーバー内からDiscord Webhookへメッセージを送信できます。
 
 `config.yml` に登録名とWebhook URLを設定しておくことで、コマンドから指定した登録名のDiscordチャンネルへメッセージを送信できます。
 
