@@ -38,7 +38,7 @@ public class WebhookPlugin extends JavaPlugin {
             }
 
             if (args.length < 2) {
-                String usage = getConfig().getString("messages.usage", "使い方: /hoge [登録名] [内容]");
+                String usage = getConfig().getString("messages.usage", "使い方: /webhook [登録名] [内容]");
                 sender.sendMessage(usage);
                 return true;
             }
@@ -48,7 +48,7 @@ public class WebhookPlugin extends JavaPlugin {
 
             String webhookUrl = getConfig().getString("webhooks." + webhookName + ".url", "");
 
-            if (webhookUrl == null || webhookUrl.isBlank() || webhookUrl.contains("ここに")) {
+            if (webhookUrl == null || webhookUrl.isBlank()) {
                 String unknownWebhook = getConfig().getString("messages.unknown-webhook", "その登録名のWebhookは存在しません。");
                 sender.sendMessage(unknownWebhook);
                 return true;

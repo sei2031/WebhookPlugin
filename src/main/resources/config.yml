@@ -1,12 +1,13 @@
-webhooks:
-  hook1:
-    url: "ここにhook1用のWebhook URLを入れる"
+webhooks: {}
 
-  hook2:
-    url: "ここにhook2用のWebhook URLを入れる"
-
-  hook3:
-    url: "ここにhook3用のWebhook URLを入れる"
+# Webhook登録例:
+# webhooks:
+#   hook1:
+#     url: "https://discord.com/api/webhooks/..."
+#   staff:
+#     url: "https://discord.com/api/webhooks/..."
+#   event:
+#     url: "https://discord.com/api/webhooks/..."
 
 messages:
   usage: "使い方: /webhook [登録名] [内容]"

@@ -37,3 +37,22 @@ Minecraftサーバー内からDiscord Webhookへメッセージを送信でき�
 ```
 
 `config.yml` を変更した後、サーバーを再起動せずに設定を反映できます。
+
+## config.yml 設定例
+
+```yml
+webhooks:
+  hook1:
+    url: "https://discord.com/api/webhooks/..."
+
+  staff:
+    url: "https://discord.com/api/webhooks/..."
+
+messages:
+  usage: "使い方: /webhook [登録名] [内容]"
+  no-permission: "このコマンドを使う権限がありません。"
+  unknown-webhook: "その登録名のWebhookは存在しません。"
+  success: "Webhookを送信しました。"
+  reload-success: "config.ymlを再読み込みしました。"
+  reload-usage: "使い方: /webhookplugin reload"
+```
