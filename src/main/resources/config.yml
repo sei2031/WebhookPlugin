@@ -9,7 +9,7 @@ webhooks:
     url: "ここにhook3用のWebhook URLを入れる"
 
 messages:
-  usage: "使い方: /hoge [登録名] [内容]"
+  usage: "使い方: /webhook [登録名] [内容]"
   no-permission: "このコマンドを使う権限がありません。"
   unknown-webhook: "その登録名のWebhookは存在しません。"
   success: "Webhookを送信しました。"

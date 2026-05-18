@@ -29,7 +29,7 @@ public class WebhookPlugin extends JavaPlugin {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (command.getName().equalsIgnoreCase("hoge")) {
+        if (command.getName().equalsIgnoreCase("webhook")) {
 
             if (!sender.hasPermission("webhookplugin.send")) {
                 String noPermission = getConfig().getString("messages.no-permission", "このコマンドを使う権限がありません。");
