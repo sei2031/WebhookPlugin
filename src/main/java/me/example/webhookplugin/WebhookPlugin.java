@@ -86,35 +86,37 @@ public class WebhookPlugin extends JavaPlugin {
     }
 
     private void sendDiscordMessage(String webhookUrl, String message) {
-        try {
-            URL url = new URL(webhookUrl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        getServer().getScheduler().runTaskAsynchronously(this, () -> {
+            try {
+                URL url = new URL(webhookUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type", "application/json");
-            connection.setDoOutput(true);
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("Content-Type", "application/json");
+                connection.setDoOutput(true);
 
-            String json = "{\"content\":\"" + escapeJson(message) + "\"}";
+                String json = "{\"content\":\"" + escapeJson(message) + "\"}";
 
-            try (OutputStream outputStream = connection.getOutputStream()) {
-                byte[] input = json.getBytes(StandardCharsets.UTF_8);
-                outputStream.write(input, 0, input.length);
+                try (OutputStream outputStream = connection.getOutputStream()) {
+                    byte[] input = json.getBytes(StandardCharsets.UTF_8);
+                    outputStream.write(input, 0, input.length);
+                }
+
+                int responseCode = connection.getResponseCode();
+
+                if (responseCode == 204 || responseCode == 200) {
+                    getLogger().info("Webhook送信に成功しました。");
+                } else {
+                    getLogger().warning("Webhook送信に失敗しました。レスポンスコード: " + responseCode);
+                }
+
+                connection.disconnect();
+
+            } catch (IOException e) {
+                getLogger().warning("Webhook送信中にエラーが発生しました。");
+                e.printStackTrace();
             }
-
-            int responseCode = connection.getResponseCode();
-
-            if (responseCode == 204 || responseCode == 200) {
-                getLogger().info("Webhook送信に成功しました。");
-            } else {
-                getLogger().warning("Webhook送信に失敗しました。レスポンスコード: " + responseCode);
-            }
-
-            connection.disconnect();
-
-        } catch (IOException e) {
-            getLogger().warning("Webhook送信中にエラーが発生しました。");
-            e.printStackTrace();
-        }
+        });
     }
 
     private String escapeJson(String text) {
